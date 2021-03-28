@@ -51,13 +51,13 @@ An endpoint to parse PatientLab data.
 ## Endpoint
 
 1. create PatientLab data
-    * URL
+    * URL :
       /api/patientlab
 
-    * Method
+    * Method :
       POST
       
-    * URL Params
+    * URL Params :
       None
       
     * Data Params Case 1 (json)
