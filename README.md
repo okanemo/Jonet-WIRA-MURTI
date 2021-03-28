@@ -22,7 +22,7 @@ An endpoint to parse PatientLab data.
 
 1. create PatientLab data
     * URL :
-      /api/patientlab
+      /api/v1/patientlab
 
     * Method :
       POST
