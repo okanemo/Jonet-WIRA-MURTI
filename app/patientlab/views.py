@@ -2,6 +2,7 @@ from .libs import parser
 from django.http import JsonResponse
 from .models import PatientLab
 from django.views.decorators.http import require_http_methods
+from django.core import serializers
 import json
 
 @require_http_methods(['POST'])
@@ -17,8 +18,8 @@ def create_patientlab(request):
 
     if not to_be_added:
         return JsonResponse({
-            'error': 'Not Acceptable'
-        }, status=406)
+            'error': 'The data provided was incomplete'
+        }, status=422)
 
     try:
         patient_lab = PatientLab.objects.create(
@@ -39,10 +40,10 @@ def create_patientlab(request):
             result_state = to_be_added['result_state']
         )
 
-        return JsonResponse({
-            'message': 'Created'
-        }, status=201)
+        serialized = serializers.serialize('json', [ patient_lab, ])
+
+        return JsonResponse(json.loads(serialized)[0]['fields'], status=201)
     except:
         return JsonResponse({
-            'error': 'Conflict'
+            'error': 'Patient id already exists'
         }, status=409)

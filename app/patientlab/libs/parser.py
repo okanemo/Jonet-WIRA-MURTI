@@ -49,24 +49,24 @@ def case_2_parse(request_json):
 
 def isCase1Valid(request_json):
     request_json_check = (
-        'id_number' in request_json,
-        'patient_name' in request_json,
-        'gender' in request_json,
-        'date_of_birth' in request_json,
-        'date_of_test' in request_json,
-        'lab_number' in request_json,
+        'id_number' in request_json and
+        'patient_name' in request_json and
+        'gender' in request_json and
+        'date_of_birth' in request_json and
+        'date_of_test' in request_json and
+        'lab_number' in request_json and
         'clinic_code' in request_json
     )
 
     lab_stds_check = 'lab_studies' in request_json
 
     lab_stds_elmt_check = False if not lab_stds_check else (
-        'code' in request_json['lab_studies'][0],
-        'name' in request_json['lab_studies'][0],
-        'value' in request_json['lab_studies'][0],
-        'unit' in request_json['lab_studies'][0],
-        'ref_range' in request_json['lab_studies'][0],
-        'finding' in request_json['lab_studies'][0],
+        'code' in request_json['lab_studies'][0] and
+        'name' in request_json['lab_studies'][0] and
+        'value' in request_json['lab_studies'][0] and
+        'unit' in request_json['lab_studies'][0] and
+        'ref_range' in request_json['lab_studies'][0] and
+        'finding' in request_json['lab_studies'][0] and
         'result_state' in request_json['lab_studies'][0]
     )
 
@@ -76,29 +76,29 @@ def isCase2Valid(request_json):
     patient_data_check = 'patient_data' in request_json
 
     patient_data_elmt_check = False if not patient_data_check else (
-        'id_number' in request_json['patient_data']['id_number'],
-        'first_name' in request_json['patient_data']['first_name'],
-        'last_name' in request_json['patient_data']['last_name'],
-        'phone_mobile' in request_json['patient_data']['phone_mobile'],
-        'gender' in request_json['patient_data']['gender'],
-        'date_of_birth' in request_json['patient_data']['date_of_birth']
+        'id_number' in request_json['patient_data'] and
+        'first_name' in request_json['patient_data'] and
+        'last_name' in request_json['patient_data'] and
+        'phone_mobile' in request_json['patient_data'] and
+        'gender' in request_json['patient_data'] and
+        'date_of_birth' in request_json['patient_data']
     )
 
     request_json_check = (
-        'date_of_test' in request_json,
-        'lab_number' in request_json,
+        'date_of_test' in request_json and
+        'lab_number' in request_json and
         'clinic_code' in request_json
     )
 
     lab_stds_check = 'lab_studies' in request_json
 
     lab_stds_elmt_check = False if not lab_stds_check else (
-        'code' in request_json['lab_studies'][0],
-        'name' in request_json['lab_studies'][0],
-        'value' in request_json['lab_studies'][0],
-        'unit' in request_json['lab_studies'][0],
-        'ref_range' in request_json['lab_studies'][0],
-        'finding' in request_json['lab_studies'][0],
+        'code' in request_json['lab_studies'][0] and
+        'name' in request_json['lab_studies'][0] and
+        'value' in request_json['lab_studies'][0] and
+        'unit' in request_json['lab_studies'][0] and
+        'ref_range' in request_json['lab_studies'][0] and
+        'finding' in request_json['lab_studies'][0] and
         'result_state' in request_json['lab_studies'][0]
     )
     

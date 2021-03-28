@@ -11,41 +11,11 @@ An endpoint to parse PatientLab data.
 
 ## Instruction 
 
-1. create a user and a database in PostgreSQL
-
-2. set DATABASES variable inside okenemo_test/settings.py
+1. to run the program :
 
     ```
-    NAME: set database name [string],
-    USER: set database username [string],
-    PASSWORD: set database password [string],
-    HOST: set database host [string]
-    ```
-
-3. if using virtualenv :
-
-    ```
-    pip install virtualenv
-    virtualenv venv
-    ./venv/Scripts/activate
-    ```
-
-4. install requirements
-
-    ```
-    pip install -r requirements.txt
-    ```
-
-5. migrate database
-
-    ```
-    python manage.py migrate
-    ```
-
-6. run server
-
-    ```
-    python manage.py runserver
+    docker-compose build
+    docker-compose up
     ```
 
 ## Endpoint
@@ -60,7 +30,7 @@ An endpoint to parse PatientLab data.
     * URL Params :
       None
       
-    * Data Params Case 1 (json)
+    * Body Case 1 (json)
     ```
     { 
         "date_of_test":[string], 
@@ -84,7 +54,7 @@ An endpoint to parse PatientLab data.
     }
     ```
 
-    * Data Params Case 2 (json)
+    * Body Case 2 (json)
     ```
     { 
         "patient_data":
