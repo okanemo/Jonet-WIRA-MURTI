@@ -2,6 +2,7 @@ version: "3.9"
    
 services:
   db:
+    restart: always
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
@@ -12,8 +13,9 @@ services:
     ports:
       - "5432:5432"
   app:
+    restart: always
     build: .
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "../wait-for-it.sh db:5432 && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./app:/app
     ports:
