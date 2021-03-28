@@ -4,7 +4,7 @@ from django.db import models
 class PatientLab(models.Model):
     id_number = models.CharField(max_length=200, unique=True)
     patient_name = models.CharField(max_length=200)
-    phone_mobile = models.CharField(max_length=200, blank=True)
+    phone_mobile = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200)
     date_of_birth = models.CharField(max_length=200)
     date_of_test = models.CharField(max_length=200)
